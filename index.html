@@ -24,6 +24,32 @@
             <option value="AB+">AB+</option>
             <option value="AB-">AB-</option>
         </select><br><br>
+        <?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = htmlspecialchars($_POST["fullname"]);
+    $email = htmlspecialchars($_POST["email"]);
+    $bloodgroup = htmlspecialchars($_POST["bloodgroup"]);
+
+    // Save data to a file (simulate database)
+    $file = fopen("signins.txt", "a");
+    fwrite($file, "$name, $email, $bloodgroup\n");
+    fclose($file);
+
+    // Email content
+    $to = $email;
+    $subject = "Blood Donation Request Confirmation";
+    $message = "Dear $name,\n\nThank you for signing up to donate blood.\nYour blood group: $bloodgroup\nWe will contact you soon.\n\nBest regards,\nBlood Donation Team";
+    $headers = "From: donations@example.com";
+
+    // Send email
+    if (mail($to, $subject, $message, $headers)) {
+        echo "Thank you for signing up! A confirmation email has been sent.";
+    } else {
+        echo "Error sending confirmation email.";
+    }
+}
+?>
+
 
         <input type="submit" value="Sign In and Send Request">
     </form>
