@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Volunteer Blood Donation Sign-in</title>
+</head>
+<body>
+    <h2>Blood Donation Volunteer Form</h2>
+    <form action="submit.php" method="POST">
+        <label for="fullname">Full Name:</label><br>
+        <input type="text" id="fullname" name="fullname" required><br><br>
+
+        <label for="email">Email Address:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="bloodgroup">Blood Group:</label><br>
+        <select name="bloodgroup" id="bloodgroup" required>
+            <option value="">--Select--</option>
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+        </select><br><br>
+
+        <input type="submit" value="Sign In and Send Request">
+    </form>
+</body>
+</html>
